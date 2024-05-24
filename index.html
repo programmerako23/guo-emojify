@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- made in ChatGPT -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guoojify App</h1>
+        <input type="text" id="inputText" placeholder="Enter your text here">
+        <div id="output"></div>
+    </div>
+
+    <script>
+        document.getElementById('inputText').addEventListener('input', function() {
+            const inputText = this.value;
+            const words = inputText.split(' ');
+            const modifiedWords = words.map(word => {
+                if (word.endsWith('l') || word.endsWith('L')) {
+                    return word + '👅';
+                }
+                return word;
+            });
+            const outputText = modifiedWords.join(' ');
+            document.getElementById('output').innerText = outputText;
+        });
+    </script>
+</body>
+</html>
